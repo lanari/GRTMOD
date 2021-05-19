@@ -15,7 +15,7 @@ Download Theriak-Domino [here](https://titan.minpet.unibas.ch/minpet/theriak/the
 
 ## Installation
 - Download the installer [here](https://github.com/lanari/GRTMOD/releases)
-- Open the installer and follow the instructions to setup GRTMOD.
+- Run the installer and follow the instructions to setup GRTMOD.
 
 ## How to use GRTMOD 2
 - Prepapre a working folder containing the file GRTMODin.txt and a database file
