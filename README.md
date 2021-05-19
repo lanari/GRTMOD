@@ -8,7 +8,7 @@ Example files are available [here](https://cloud.cpag-research.ch/index.php/s/2N
 Download Theriak-Domino [here](https://titan.minpet.unibas.ch/minpet/theriak/theruser.html)
 
 
-## New 2.0-beta.1
+## What is new and important to know?   (2.0-beta.1) 
 - In the setup file GRTMODin.txt, you need to add the path to the Theriak directory after the keyword THER (mandatory)
 - Duplicate this setup file to work on a new project; note that the new entry "* THER:  /.../Theriak/" must be added to project files compatible with previous versions of GRTMOD.
 
