@@ -91,6 +91,7 @@ Two auto-refinement stages are calculated, one for each of the solutions: soluti
 The second solution is selected here manually as best solution because ~4 vol-% of garnet from that stage is observed in the sample. The growth of Grt2 is modeled with a the resorption of 2.687 vol-% of Grt1 (Fig. 11).
 
 ## GRTMOD variables in GRTMODin.txt
+### INIT block
     
     >> INIT
     * THER: /Users/pierrelanari/Geologie/Programs/TheriakDominoCompiled
@@ -119,7 +120,7 @@ The second solution is selected here manually as best solution because ~4 vol-% 
     * PDI2: 125
     
 - THDB: Thermodynamic database (e.g. JUN92.bs or tc55.txt). Any database compatible with Theriak-Domino can be used but **the name of the solution model for garnet in the database must be GARNET**.
-- SAMP: End of theriak default line [* Sample Name] must start with * ! could be used to define set a buffer *,buffer_name
+- SAMP: End of theriak default line _* Sample Name_ must start with * ! could be used to define set a buffer *,buffer_name
 - SYST: Chemical system (see above). **Do not edit this line!**
 - BULK: Add your intial bulk composition (in oxide wt-%). **WARNING: Fe must be defined as FeO in the current version of GRTMOD. FE2O3 should not be used**.  
 - NH2O: value of H(X) in therin
@@ -141,4 +142,44 @@ The second solution is selected here manually as best solution because ~4 vol-% 
 - PDI1: P discretization first optimization (bar)
 - TDI2: T discretization refinement (°C)
 - PDI2: P discretization refinement (bar)
+
+### STAGE block
+    
+    >> STAGE 1
+    * COMP: 1
+    * OPTI: 1
+    * REFI: 1
+    * MAPC: 0
+    * CVAR-GARN-1-COMP: 37.7 0.01 21.27 31.46 0	0.00 7.19 1.31 0 0.01
+    * CVAR-GARN-1-WEIG: 3500 800 1300 5
+    * CVAR-GARN-1-FVOL: 4
+    * CVAR-GARN-1-MVOL: 40
+    * OPTP: 749 8200
+    * TRYI: 749 8190
+    
+    >> STAGE 2
+    * COMP: 1
+    * OPTI: 1
+    * REFI: 1
+    * MAPC: 0
+    * CVAR-GARN-2-COMP: 37.95 0.01 21.44 27.94 0 0.00 5.33 6.72 0	0
+    * CVAR-GARN-2-WEIG: 3100 2900 800 5
+    * CVAR-GARN-2-FVOL: 1
+    * MAXC: 13.94
+    * MINC: 4
+
+    
+- COMP: _1_ compute or _0_ use a restart for this stage (e.g. RESTART_Stage(1).mat)
+- OPTI: optimization (_1_ yes; _0_ no; _2_ Go fast mode: run directly opt2 using conditions defined in OPTP)
+- REDI: P-T refinement with uncertainty estimation (_1_ yes, _0_ no)
+- MAPC: map computation between TMIN TMAX and PMIN and PMAX (_1_ using TDI1, _2_ using TDI2)
+- CVAR: composition variables; note that the number _Ref_Stage_ is required in the keyword
+- CVAR-GARN-_Ref_Stage_-COMP: Define the garnet oxide wt-% composition (order: SIO2 TIO2 AL2O3 FEO FE3O3 MNO MGO CAO NA2O K2O; cannot be changed in this version)
+- CVAR-GARN-_Ref_Stage_-WEIG: Define the weights: _wFe wCa wMg wMn_; weights; number of counts from the X-ray map for each element works (e.g. Lanari et al, 2017). **Note: If you do not have X-ray maps of your garnet, you can use my converter file that generates pseudo X-ray intensities from garnet spot analyses. NOTE: The weighting procedure can significantly affect the results, be sure that weight values are relevant**
+- CVAR-GARN-_Ref_Stage_-FVOL: Final vol% of this garnet stage; used by the program as minimum volume fraction of garnet for calculating a residual during the minimization
+- CVAR-GARN-_Ref_Stage_-MVOL: Maximal volume % value for this garnet (100% if not defined for stage > 1)
+- TRYI: Try to run ptimizations (1 and 2) from this additional initial guess _T P_; Each row starting with the keyboard TRYI creates an additional starting position
+- OPTP: run directly optimization 2 from this starting guess _T P_; required if OPTI = _2_ for this stage
+- MAXC: Maximum garnet volume bounds (_0_ means don’t use it) vector with iStage-1 values – not used for stage 1. Note that this value can overwrite the upper limit and it is therfore possible to fractionate more Grt of the previous stage that predicted by the model by adjusting this value
+- MINC: Minimum garnet volume bounds (_0_ means don’t use it) vector with iStage-1 values – not used for stage 1
 
