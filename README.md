@@ -118,7 +118,7 @@ The second solution is selected here manually as best solution because ~4 vol-% 
     * PDI1: 500
     * PDI2: 125
     
-- THDB: Thermodynamic database (e.g. JUN92.bs or tc55.txt). Any database compatible with Theriak-Domino can be used but **the name of the solution model for garnet must be GARNET**.
+- THDB: Thermodynamic database (e.g. JUN92.bs or tc55.txt). Any database compatible with Theriak-Domino can be used but **the name of the solution model for garnet in the database must be GARNET**.
 - SAMP: End of theriak default line [* Sample Name] must start with * ! could be used to define set a buffer *,buffer_name
 - SYST: Chemical system (see above). **Do not edit this line!**
 - BULK: Add your intial bulk composition (in oxide wt-%). **WARNING: Fe must be defined as FeO in the current version of GRTMOD. FE2O3 should not be used**.  
@@ -132,7 +132,7 @@ The second solution is selected here manually as best solution because ~4 vol-% 
 - SELP: Mode to select the solution to be plotted: _0_ all, _1_ only the selected solution
 - TOLX: Optimization parameter: Termination tolerance on x (def. 0.001)
 - TOLF: Optimization parameter: Termination tolerance on the function value (def. 0.001)
-- DISP: Display optimization info during each minimization: _off_ _iter_ _final_ _notify_
+- DISP: Display optimization info during each minimization: _off_ | _iter_ | _final_ | _notify_
 - TMIN: Set Tmin of the problem (in °C)
 - TMAX: Set Tmax of the problem (°C)
 - PMIN: Set Pmin of the problem (in bar)
