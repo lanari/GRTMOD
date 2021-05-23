@@ -36,8 +36,13 @@ Download Theriak-Domino [here](https://titan.minpet.unibas.ch/minpet/theriak/the
 5. Press the button "Set Directory" and pick up the right folder
 
 ### Stage 1
-1. Open GRTMODin.txt using a text editor and maake sure that stage 2 is commented (the line not starting by ">")
-    ->> Stage 2
+1. Open GRTMODin.txt using a text editor and maake sure that stage 2 is commented (the line not starting by ">", a minus is added in the example below)
+        
+        ->> STAGE 2
+        * COMP: 1
+        * OPTI: 1
+        * REFI: 1
+        
 2. Save the file GRTMODin.txt
 3. In the GRTMOD window, press the button "Run GRTMOD"
 
@@ -54,4 +59,36 @@ The procedure of each stage is divided into three phases: optimization1, optimiz
 In this example (stage 1) the solution of the RUN 1/4 is selected as the best solution.
 
 ### Stage 2
+1. Open GRTMODin.txt
+2. As it is not required to calculate the first stage again set the variable COMP of stage 1 to 0. GRTMOD will read the restart file.
+                 
+        >> STAGE 1
+        * COMP: 0
+        * OPTI: 1
+        * REFI: 1
+        
+3. Activate stage 2 and set the variable COMP to 1: 
+        
+        >> STAGE 2
+        * COMP: 1
+        * OPTI: 1
+        * REFI: 1
+        
+4. Save the file GRTMODin.txt
+5. In the GRTMOD window, press the button "Run GRTMOD"
+6. Select the second solution SOL-2 at T = 649°C and P = 15335 bar; the higher garnet volume fraction  predicted is in line with the observations in this sample
+7. A restart file RESTART_Stage(1).mat has been generated
+8. Two figures are displayed: a P-T diagram showing the result and uncertainty; a mode diagram showing the volume fraction of garnet modeled at each stage
+9. A table containing a summary of the final results is saved in last_GRTMOD.txt
+
+### Notes on the optimization procedure of GRTMOD (Stage 2)
+During optimization1, GRTMOD runs 4 minimizations (see input variables for the initial P-T conditions). Two minimizations 1 and 3 fail to find a solution (residue of 1e+19) which mean that no garnet was predicted to be stable close to the starting conditions. For run 1, the fraction of garnet predicted to be stable (0.19872 vol-%) is too small and below the lower limit (1%) defined in the project file (variable CVAR-GARN-2-FVOL). For run 3, garnet is not predicted to be stable at the initial P-T conditions of TC = 800°C & P = 8000 bar. By contrast, minimizations 2 and 4 converged to a minimum with residue of 0.00010767 and 0.017066 respectively. The solution of minimization 2 (TC = 645 °C & P = 13296 bar) is selected as the best solution–from a statistical point of view-for optimization2.
+
+During optimization2, three minimisations are performed starting from the best P-T solution of optimization1 (TC = 645 °C & P = 13296 bar, see above) with a variable fraction of Grt1 (X-1), fractionated from the bulk rock composition: 13.9369 vol-% (solution from stage 1 = no resorption); 4 vol-% (strong resorption); 8.9685 vol-% (moderate resorption). Note that minimization 1/3 converges to a solution at TC = 645 °C and P = 13298 bar for a X-1 of 13.9333 vol-% with 1.7033 vol-% of Grt2 stable. Minimization 2/3 converges to a solution at TC = 649 °C and P = 15335 bar for a X-1 of 11.25 vol-% with 4.6414 vol-% of Grt2 stable. Minimization 3/3 converges to a solution at TC = 649 °C and P = 15335 bar for a X-1 of 8.96 vol-% with 5.3526 vol-% of Grt2 stable. Minimizations 2 and 3 converge to an identical solution in P-T, and GRTMOD only stored solution 2.
+
+Two auto-refinement stages are calculated, one for each of the solutions: solution 1 from minimization 1 and solution 2 from minimzation 2.
+
+The second solution is selected here manually as best solution because ~4 vol-% of garnet from that stage is observed in the sample. The growth of Grt2 is modeled with a the resorption of 2.687 vol-% of Grt1 (Fig. 11).
+
+## GRTMOD variables in GRTMODin.txt
 
