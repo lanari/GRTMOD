@@ -91,4 +91,54 @@ Two auto-refinement stages are calculated, one for each of the solutions: soluti
 The second solution is selected here manually as best solution because ~4 vol-% of garnet from that stage is observed in the sample. The growth of Grt2 is modeled with a the resorption of 2.687 vol-% of Grt1 (Fig. 11).
 
 ## GRTMOD variables in GRTMODin.txt
+    
+    >> INIT
+    * THER: /Users/pierrelanari/Geologie/Programs/TheriakDominoCompiled
+    * THDB: JUN92.bs
+    * SAMP: * Demo 
+    * SYST: SIO2 TIO2 AL2O3 FEO FE2O3 MNO MGO CAO NA2O K2O
+    * BULK: 64.09 0.95 17.12 6.99 0 0.00 2.34 0.72 1.05 3.13
+    * NH2O: 1
+    * NOFI: ?
+    * NCFI: 0
+    * NEXO: 0.00
+    * STOL: 0.05
+    * RESC: 0.015
+    * SELS: 1
+    * SELP: 1
+    * TOLX: 0.001
+    * TOLF: 0.001
+    * DISP: off
+    * TMIN: 500
+    * TMAX: 900
+    * PMIN: 4000
+    * PMAX: 20000
+    * TDI1: 20
+    * TDI2: 5
+    * PDI1: 500
+    * PDI2: 125
+    
+- THDB: Thermodynamic database (e.g. JUN92.bs or tc55.txt). Any database compatible with Theriak-Domino can be used but **the name of the solution model for garnet must be GARNET**.
+- SAMP: End of theriak default line [* Sample Name] must start with * ! could be used to define set a buffer *,buffer_name
+- SYST: Chemical system (see above). **Do not edit this line!**
+- BULK: Add your intial bulk composition (in oxide wt-%). **WARNING: Fe must be defined as FeO in the current version of GRTMOD. FE2O3 should not be used**.  
+- NH2O: value of H(X) in therin
+- NOFI: O(X) in therin (usually “?”) – If this a value is not defined default O(?) is applied
+- NCFI: C(X) in therin; If no value is provided C(0) is applied instead
+- NEXO: O(X) in therin – Excess Oxygen as in Thermocalc. NB: If this option is not set the excess O = 0. **Use this to work with Fe3+ instead of FE2O3 (see above)
+- STOL: Tolerance for an acceptable solution (def. 0.05). From a statistical point of view a value of below 0.3 is excellent. 
+- RESC: Residuum criteria to refine errors (def. 0.015)
+- SELS: Mode to select the solution: _0_ auto (best), _1_ manual
+- SELP: Mode to select the solution to be plotted: _0_ all, _1_ only the selected solution
+- TOLX: Optimization parameter: Termination tolerance on x (def. 0.001)
+- TOLF: Optimization parameter: Termination tolerance on the function value (def. 0.001)
+- DISP: Display optimization info during each minimization: _off_ _iter_ _final_ _notify_
+- TMIN: Set Tmin of the problem (in °C)
+- TMAX: Set Tmax of the problem (°C)
+- PMIN: Set Pmin of the problem (in bar)
+- PMAX: Set Pmax of the problem (bar)
+- TDI1: T discretization first optimization (°C)
+- PDI1: P discretization first optimization (bar)
+- TDI2: T discretization refinement (°C)
+- PDI2: P discretization refinement (bar)
 
