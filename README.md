@@ -1,4 +1,6 @@
 # GRTMOD
+<img align="right" width="150" alt="GRTMOD_logo" src="https://user-images.githubusercontent.com/54409312/119620363-30eec380-be05-11eb-813f-7e89b930cb56.png">
+
 GRTMOD is a program for modeling garnet growth and resorption stages in metamorphic rocks. It can be used for thermobarometry based on reactive bulk compositions. This version of GRTMOD requires any version of Theriak-Domino to run Gibbs energy minimizations.
 
 Download the latest release [here](https://github.com/lanari/GRTMOD/releases)
@@ -6,7 +8,6 @@ Download the latest release [here](https://github.com/lanari/GRTMOD/releases)
 Example files are available [here](https://cloud.cpag-research.ch/index.php/s/2N8JKzi5HgZD7cP)
 
 Download Theriak-Domino [here](https://titan.minpet.unibas.ch/minpet/theriak/theruser.html)
-
 
 ## What is new and important to know?   (2.0-beta.1) 
 - In the project file GRTMODin.txt, you need to add the path to the Theriak directory after the keyword THER (mandatory)
@@ -34,12 +35,15 @@ Download Theriak-Domino [here](https://titan.minpet.unibas.ch/minpet/theriak/the
 3. Copy the file Theriak.ini from the Theriak-Domino program folder to the working directory (required for Windows and for some macOS configurations)
 4. Run GRTMOD.app (macOS) or GRTMOD.exe (WINDOWS)
 
-    <img width="400" alt="GRTMOD_1" src="https://user-images.githubusercontent.com/54409312/119619369-34ce1600-be04-11eb-9632-15e5354c29d6.png">
+<p align="center">
+<img width="450" alt="GRTMOD_1" src="https://user-images.githubusercontent.com/54409312/119619369-34ce1600-be04-11eb-9632-15e5354c29d6.png">
+</p>
 
 6. Press the button "Set Directory" and pick up the right folder
 
-    <img width="400" alt="GRTMOD_2" src="https://user-images.githubusercontent.com/54409312/119619406-3e577e00-be04-11eb-82b6-20e2569bab86.png">
-
+<p align="center">
+<img width="450" alt="GRTMOD_2" src="https://user-images.githubusercontent.com/54409312/119619406-3e577e00-be04-11eb-82b6-20e2569bab86.png">
+</p>
 
 ### Stage 1
 1. Open GRTMODin.txt using a text editor and maake sure that stage 2 is commented (the line not starting by ">", a minus is added in the example below)
@@ -52,12 +56,26 @@ Download Theriak-Domino [here](https://titan.minpet.unibas.ch/minpet/theriak/the
 2. Save the file GRTMODin.txt
 3. In the GRTMOD window, press the button "Run GRTMOD"
 
+<p align="center">
+<img width="450" alt="GRTMOD_3" src="https://user-images.githubusercontent.com/54409312/119619867-b625a880-be04-11eb-84fc-fd17c4f821f3.png">
+</p>
+
 Note: You can open the file last_GRTMOD.txt with a text editor updating the content live to vizualise the progress of the calculation
 
 4. Once the calculations for stage 1 are accomplished, a dialog window appears listing all the solutions for this stage: select the solution and press "Ok"; In this example, a single solution was found for stage 1 at T = 752°C and P = 8235 bar
-5. Details results are saved in the file last_GRTMOD.txt
-6. A restart file RESTART_Stage(1).mat has been generated
-7. Two figures are displayed: a P-T diagram shwoing the result and uncertainty; a mode diagram showing the volume fraction of garnet modeled at each stage
+
+<p align="center">
+<img width="450" alt="GRTMOD_4" src="https://user-images.githubusercontent.com/54409312/119619912-c2aa0100-be04-11eb-9d69-2ce14bf72ac1.png">
+</p>
+
+6. Details results are saved in the file last_GRTMOD.txt
+7. A restart file RESTART_Stage(1).mat has been generated
+8. Two figures are displayed: a P-T diagram shwoing the result and uncertainty; a mode diagram showing the volume fraction of garnet modeled at each stage
+
+<p align="center">
+<img width="450" alt="Result1" src="https://user-images.githubusercontent.com/54409312/119619967-d0f81d00-be04-11eb-8e9d-3f278dffcbcd.png">
+<img width="450" alt="Result2" src="https://user-images.githubusercontent.com/54409312/119620000-d7869480-be04-11eb-9dcb-8152f9cbd170.png">
+</p>
 
 ### Notes on the optimization procedure of GRTMOD
 The procedure of each stage is divided into three phases: optimization1, optimization2 and auto-refinement. During optimization1, successive minimizations are carried out from different starting P-T guesses in order to determine the global minimum within the P-T window. For stages i > 1, optimization2 refines the garnet fractions to be fractionated, as well as P-T. The starting guess for optimization2 is the best P-T couple obtained during optimization1. A go fast mode is available to run directly optimization2 from user’s favorite P-T initial guess. Finally, the auto-refinement stage checks the local variability of the objective function in order to provide a relative uncertainty on the P-T estimate.
@@ -82,10 +100,51 @@ In this example (stage 1) the solution of the RUN 1/4 is selected as the best so
         
 4. Save the file GRTMODin.txt
 5. In the GRTMOD window, press the button "Run GRTMOD"
-6. Select the second solution SOL-2 at T = 649°C and P = 15335 bar; the higher garnet volume fraction  predicted is in line with the observations in this sample
-7. A restart file RESTART_Stage(1).mat has been generated
-8. Two figures are displayed: a P-T diagram showing the result and uncertainty; a mode diagram showing the volume fraction of garnet modeled at each stage
-9. A table containing a summary of the final results is saved in last_GRTMOD.txt
+
+<p align="center">
+<img width="450" alt="GRTMOD_5" src="https://user-images.githubusercontent.com/54409312/119621033-f0dc1080-be05-11eb-9219-8b41e1764ed8.png">
+</p>
+
+7. Select the second solution SOL-2 at T = 649°C and P = 15335 bar; the higher garnet volume fraction  predicted is in line with the observations in this sample
+
+<p align="center">
+<img width="450" alt="GRTMOD_6" src="https://user-images.githubusercontent.com/54409312/119621061-f8031e80-be05-11eb-83e3-65c753317b68.png">
+</p>
+
+9. A restart file RESTART_Stage(1).mat has been generated
+10. Two figures are displayed: a P-T diagram showing the result and uncertainty; a mode diagram showing the volume fraction of garnet modeled at each stage
+
+<p align="center">
+<img width="450" alt="Result_3" src="https://user-images.githubusercontent.com/54409312/119621102-06513a80-be06-11eb-865a-962bbbb97435.png">
+<img width="450" alt="Result_4" src="https://user-images.githubusercontent.com/54409312/119621113-09e4c180-be06-11eb-93c3-5c1133496f9b.png">
+</p>
+
+12. A table containing a summary of the final results is saved in last_GRTMOD.txt
+        
+          -----------------------------------
+         |           FINAL RESULTS           |
+          -----------------------------------
+          
+          -> GARNET RESORPTION (vol-%)
+              		        Grt1	Grt2	Total
+         Stage 1		0.000	0.000	0.000
+         Stage 2		3.471	0.000	3.471
+          
+          -> VOLUME OF GARNET (vol-%)
+              		        Grt1	Grt2	Total
+         Stage 1		13.942	0.000	13.942
+         Stage 2		10.471	5.358	15.829
+          
+          -> NEWLY GROWN GARNET (vol-%)
+              		        Grt1	Grt2	Total
+         Stage 1		13.942	0.000	13.942
+         Stage 2		0.000	5.358	5.358
+ 
+          -> ROCK DENSITY (g/ccm)
+              		        Density
+         Stage 1		2.899
+         Stage 2		2.983
+         
 
 ### Notes on the optimization procedure of GRTMOD (Stage 2)
 During optimization1, GRTMOD runs 4 minimizations (see input variables for the initial P-T conditions). Two minimizations 1 and 3 fail to find a solution (residue of 1e+19) which mean that no garnet was predicted to be stable close to the starting conditions. For run 1, the fraction of garnet predicted to be stable (0.19872 vol-%) is too small and below the lower limit (1%) defined in the project file (variable CVAR-GARN-2-FVOL). For run 3, garnet is not predicted to be stable at the initial P-T conditions of TC = 800°C & P = 8000 bar. By contrast, minimizations 2 and 4 converged to a minimum with residue of 0.00010767 and 0.017066 respectively. The solution of minimization 2 (TC = 645 °C & P = 13296 bar) is selected as the best solution–from a statistical point of view-for optimization2.
