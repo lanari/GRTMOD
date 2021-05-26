@@ -108,7 +108,7 @@ In this example (stage 1) the solution of the RUN 1/4 is selected as the best so
 7. Select the second solution SOL-2 at T = 649°C and P = 15335 bar; the higher garnet volume fraction  predicted is in line with the observations in this sample
 
 <p align="center">
-<img width="450" alt="GRTMOD_6" src="https://user-images.githubusercontent.com/54409312/119621061-f8031e80-be05-11eb-83e3-65c753317b68.png">
+<img width="450" alt="GRTMOD_6" src="https://user-images.githubusercontent.com/54409312/119623216-3ef21380-be08-11eb-99e1-c60297d8efe3.png">
 </p>
 
 9. A restart file RESTART_Stage(1).mat has been generated
