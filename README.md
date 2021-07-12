@@ -192,7 +192,7 @@ The second solution is selected here manually as best solution because ~4 vol-% 
 - NOFI: O(X) in therin (usually “?”) – If this a value is not defined default O(?) is applied
 - NCFI: C(X) in therin; If no value is provided C(0) is applied instead
 - NEXO: O(X) in therin – Excess Oxygen as in Thermocalc. NB: If this option is not set the excess O = 0. **Use this to work with Fe3+ instead of FE2O3 (see above)
-- STOL: Tolerance for an acceptable solution (def. 0.05). From a statistical point of view a value of below 0.3 is excellent. 
+- STOL: Tolerance for an acceptable solution (def. 0.05). From a statistical point of view a value of below 0.03 is excellent. 
 - RESC: Residuum criteria to refine errors (def. 0.015)
 - SELS: Mode to select the solution: _0_ auto (best), _1_ manual
 - SELP: Mode to select the solution to be plotted: _0_ all, _1_ only the selected solution
